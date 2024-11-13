@@ -1,0 +1,103 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Questionnaire</title>
+   
+</head>
+<body>
+    <div class="container">
+        <h2>Credit Score Assessment</h2>
+        <form method="post" action="{% url 'submit' %}">
+            {% csrf_token %}
+            {% for question in questions %}
+                <div class="question-block">
+                    <p>{{ question.question_text }}</p>
+                    <label>
+                        <input type="radio" name="{{ question.id }}" value="A" required>
+                        {{ question.option_a }}
+                    </label><br>
+                    <label>
+                        <input type="radio" name="{{ question.id }}" value="B">
+                        {{ question.option_b }}
+                    </label><br>
+                    <label>
+                        <input type="radio" name="{{ question.id }}" value="C">
+                        {{ question.option_c }}
+                    </label><br>
+                    <label>
+                        <input type="radio" name="{{ question.id }}" value="D">
+                        {{ question.option_d }}
+                    </label>
+                </div>
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let questions = document.querySelectorAll('p');
+            let currentIndex = 0;
+            showQuestion(currentIndex);
+        
+            function showQuestion(index) {
+                if (index < questions.length) {
+                    let question = questions[index];
+                    question.style.display = 'block';
+                }
+            }
+        });
+        </script>
+        
+</body>
+</html> -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Assessment</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Credit Score Assessment</h2>
+        <form method="post" action="{% url 'submit' %}" id="question-form">
+            {% csrf_token %}
+            {% for question in questions %}
+                <div class="modal" id="modal-{{ question.id }}" style="display: none;">
+                    <p>{{ question.question_text }}</p>
+                    <label><input type="radio" name="{{ question.id }}" value="A" required> {{ question.option_a }}</label><br>
+                    <label><input type="radio" name="{{ question.id }}" value="B"> {{ question.option_b }}</label><br>
+                    <label><input type="radio" name="{{ question.id }}" value="C"> {{ question.option_c }}</label><br>
+                    <label><input type="radio" name="{{ question.id }}" value="D"> {{ question.option_d }}</label><br>
+                    <button type="button" class="next">Next</button>
+                </div>
+            {% endfor %}
+            <button type="submit" id="submit-btn" style="display: none;">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            let currentIndex = 0;
+            const modals = $(".modal");
+            $(modals[currentIndex]).show();
+
+            $(".next").click(function () {
+                $(modals[currentIndex]).hide();
+                currentIndex++;
+                if (currentIndex < modals.length) {
+                    $(modals[currentIndex]).show();
+                } else {
+                    $("#submit-btn").show();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,149 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Container Styling */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+/* Question Box Styling */
+.question-box {
+    background-color: #f0f4f8;
+    border: 1px solid #ddd;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.question-content {
+    margin-bottom: 15px;
+}
+
+/* Input Styles */
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #fb9700;
+}
+
+.next {
+    margin-top: 20px;
+}
+
+#submit-btn {
+    background-color: #28a745;
+}
+
+#submit-btn:hover {
+    background-color: #218838;
+}
+
+/* Result Box Styling */
+.result-box {
+    background-color: #043a70;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid #050505;
+    margin-top: 20px;
+}
+
+.score-value {
+    font-size: 2.5em;
+    color: #007bff;
+    margin: 20px 0;
+}
+
+/* Link Button Styling */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #db600d;
+    background-color: #9dbcde;
+    padding: 12px 25px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #36485c;
+}
+.center-button {
+    text-align: center;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #db600d;
+    background-color: #9dbcde;
+    padding: 12px 25px;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: #7b9cc1;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        max-width: 100%;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .question-box,
+    .result-box {
+        padding: 20px;
+    }
+    .score-value {
+        font-size: 2em;
+    }
+}
